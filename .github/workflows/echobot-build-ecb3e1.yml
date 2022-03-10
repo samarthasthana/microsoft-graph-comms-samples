@@ -1,4 +1,4 @@
-name: .NET BOT D1 BUILD ecb3101
+name: .NET BOT D1 BUILD ecb3e1
 
 on:
   workflow_dispatch:
@@ -7,12 +7,12 @@ on:
     branches: [ sasthana/echobotcompare ]
     paths:
       - ./Samples/PublicSamples/EchoBot/src/**
-      - .github/workflows/echobot-build-ecb3101.yml
+      - .github/workflows/echobot-build-ecb3e1.yml
   pull_request:
     branches: [ sasthana/echobotcompare ]
     paths:
       - ./Samples/PublicSamples/EchoBot/src/**
-      - .github/workflows/echobot-build-ecb3101.yml
+      - .github/workflows/echobot-build-ecb3e1.yml
 
 env:
   # /home/runner/work/publish
@@ -20,8 +20,8 @@ env:
   Component:   EchoBot
   BuildName:   0.1.${{ github.run_number }}
   Environment: D1
-  OrgName:     ecb3101
-  Location:    centralus
+  OrgName:     ecb3e1
+  Location:    eastus
 
 jobs:
   build:
@@ -66,7 +66,7 @@ jobs:
     - name: Login via Az module
       uses: azure/login@v1
       with:
-        creds: ${{ secrets.AZURE_CREDENTIALS_ecb3101_BOT }}
+        creds: ${{ secrets.AZURE_CREDENTIALS_ecb3e1_BOT }}
         enable-AzPSSession: true
 
     - name: G1_RG_UploadArtifacts_to_Blob

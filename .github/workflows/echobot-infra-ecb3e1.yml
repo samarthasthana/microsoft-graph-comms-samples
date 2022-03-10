@@ -1,4 +1,4 @@
-name: .NET BOT D1 INFRA ecb3101
+name: .NET BOT D1 INFRA ecb3e1
 
 # Controls when the action will run.
 on:
@@ -8,19 +8,19 @@ on:
     branches: [ sasthana/echobotcompare ]
     paths:
       - ./Samples/PublicSamples/EchoBot/ADF/**
-      - .github/workflows/echobot-infra-ecb3101.yml
+      - .github/workflows/echobot-infra-ecb3e1.yml
   pull_request:
     branches: [ sasthana/echobotcompare ]
     paths:
       - ./Samples/PublicSamples/EchoBot/ADF/**
-      - .github/workflows/echobot-infra-ecb3101.yml
+      - .github/workflows/echobot-infra-ecb3e1.yml
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 env:
-  OrgName: ecb3101
-  Location: centralus
+  OrgName: ecb3e1
+  Location: eastus
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -40,7 +40,7 @@ jobs:
       - name: Login via Az module
         uses: azure/login@v1
         with:
-          creds: ${{secrets.AZURE_CREDENTIALS_ecb3101_BOT}}
+          creds: ${{secrets.AZURE_CREDENTIALS_ecb3e1_BOT}}
           enable-AzPSSession: true
 
       - name: Deploy_All_Subscription
@@ -56,7 +56,7 @@ jobs:
             ./Samples/PublicSamples/EchoBot/ADF/main.ps1 @Params
             if ($e){throw $e}
         env:
-          VMSS_CREDENTIALS: ${{ secrets.VMSS_CREDENTIALS_ecb3101_BOT }}
+          VMSS_CREDENTIALS: ${{ secrets.VMSS_CREDENTIALS_ecb3e1_BOT }}
 
 
 
